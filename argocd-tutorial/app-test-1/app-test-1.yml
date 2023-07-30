@@ -47,9 +47,9 @@ kind: Ingress
 metadata:
   name: app-test-1-ingress
   namespace: app-test-1
-  #annotations:
-   # nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: "nginx"
   rules:
@@ -74,7 +74,7 @@ metadata:
   name: app-test-1-cert
   namespace: app-test-1
 spec:
-  secretName: app-test-1-tls-secret
+  #secretName: app-test-1-tls-secret
   issuerRef:
     name: ssl-issuer
     kind: ClusterIssuer
